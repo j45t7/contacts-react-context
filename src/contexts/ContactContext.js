@@ -32,11 +32,8 @@ const ContactContextProvider = (props) => {
     setContacts(contacts.filter((contact) => contact.id !== id))
   }
 
-  const editContact = (id, newFirstName, newLastName, newPhone, newEmail) =>{
-    setContacts(contacts.map(contact => contact.id === id ? {...contacts, firstName: newFirstName, lastName: newLastName, phone: newPhone, email: newEmail} : contact))
-  }
   return (
-    <ContactContext.Provider value={{ contacts, addContact, removeContact, editContact }}>
+    <ContactContext.Provider value={{ contacts, addContact, removeContact }}>
       {props.children}
     </ContactContext.Provider>
   )

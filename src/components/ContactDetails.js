@@ -27,12 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     display: 'block',
-    flexWrap: 'wrap',
     minWidth: 300,
-    // width: '100%',
     margin: 'auto',
     paddingBottom: 10,
-    justifyContent: 'center',
   },
   buttons: {
     padding: theme.spacing(2),
@@ -63,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ContactDetails = ({ contact }) => {
-  const { removeContact, editContact } = useContext(ContactContext)
+  const { removeContact } = useContext(ContactContext)
   const classes = useStyles()
 
   return (
@@ -98,7 +95,7 @@ const ContactDetails = ({ contact }) => {
             direction='column'
             justify='space-evenly'
           >
-            <Button
+            {/* <Button
               className={classes.button}
               variant='contained'
               startIcon={<EditIcon />}
@@ -106,7 +103,7 @@ const ContactDetails = ({ contact }) => {
               onClick={() => editContact(contact.newFirstName)}
             >
               Edit
-            </Button>
+            </Button> */}
             <Button
               className={classes.button}
               variant='contained'
