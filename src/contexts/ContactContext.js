@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { ContactReducer } from '../reducers/ContactReducer'
 
@@ -20,7 +20,14 @@ const ContactContextProvider = (props) => {
     //   phone: '123456',
     //   email: 'ryu@gmail.com',
     // },
-  ])
+  ], ()=>{
+    const localData = window.localStorage.getItem('contacts')
+    return localData ? JSON.parse(localData) : []
+  })
+
+  useEffect(()=>{
+window.localStorage.setItem('contacts', JSON.stringify(contacts))
+  }, [contacts])
 
   return (
     <ContactContext.Provider value={{ contacts, dispatch }}>
