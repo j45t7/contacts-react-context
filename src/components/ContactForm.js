@@ -61,8 +61,8 @@ const ContactForm = (props) => {
   const empty =
     firstName === '' || lastName === '' || phone === '' || email === ''
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault()
     addContact(firstName, lastName, phone, email)
     setFirstName('')
     setLastName('')
