@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ContactDetails = ({ contact }) => {
-  const { removeContact } = useContext(ContactContext)
+  const { dispatch } = useContext(ContactContext)
   const classes = useStyles()
 
   return (
@@ -110,7 +110,9 @@ const ContactDetails = ({ contact }) => {
               color='secondary'
               startIcon={<DeleteIcon />}
               size='small'
-              onClick={() => removeContact(contact.id)}
+              onClick={() =>
+                dispatch({ type: 'REMOVE_CONTACT', id: contact.id })
+              }
             >
               Delete
             </Button>

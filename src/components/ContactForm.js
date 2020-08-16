@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ContactForm = (props) => {
   const classes = useStyles()
-  const { addContact } = useContext(ContactContext)
+  const { dispatch } = useContext(ContactContext)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [phone, setPhone] = useState('')
@@ -63,7 +63,15 @@ const ContactForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addContact(firstName, lastName, phone, email)
+    dispatch({
+      type: 'ADD_CONTACT',
+      contact: {
+        firstName,
+        lastName,
+        phone,
+        email,
+      },
+    })
     setFirstName('')
     setLastName('')
     setPhone('')
