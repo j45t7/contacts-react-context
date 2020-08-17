@@ -13,13 +13,6 @@ const ContactContextProvider = (props) => {
     //   phone: '123456',
     //   email: 'justyna@gmail.com',
     // },
-    // {
-    //   id: uuidv4(),
-    //   firstName: 'Ryu',
-    //   lastName: 'Tsukata',
-    //   phone: '123456',
-    //   email: 'ryu@gmail.com',
-    // },
   ], ()=>{
     const localData = window.localStorage.getItem('contacts')
     return localData ? JSON.parse(localData) : []
